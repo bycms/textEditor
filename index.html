@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div id="toolbar">
+        <button id="copy" class="toolbarBtn" onclick="navigator.clipboard.writeText(textArea.textContent)">Copy</button>
+    </div>
+    <div id="textArea" contenteditable="true">
+        mmmmmmmmmmm
+    </div>
+    <div id="floatBox">
+        <div id="floatStyle">
+            <button class="floatboxBtn1" onclick="floatStyle.style.display = 'none'; floatAI.style.display = 'flex'; floatBox.style.width = '330px';">Ask AI</button>
+            <div id="hr">  </div>
+            <button class="floatboxBtn2" onclick="document.execCommand('Bold')"><b>B</b></button>
+            <button class="floatboxBtn2" onclick="document.execCommand('Italic')"><i>I</i></button>
+            <button class="floatboxBtn2" onclick="document.execCommand('Underline')"><u>U</u></button>
+            <select class="floatboxSel" onclick="document.execCommand('fontSize', false, this.value)">
+                <option value="1">1</option>
+                <option value="3">3</option>
+                <option value="5">5</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+            </select>
+            <button class="floatboxBtn3" id="closeBoxBtn" onclick="floatBox.style.opacity = '0';">x</button>
+        </div>
+        <div id="floatAI">
+            <input type="text" id="editInputBox" placeholder="Edit anything..."/>
+            <button id="editSubmitBtn">Start</button>
+            <button id="editCancelBtn" onclick="floatStyle.style.display = 'flex'; floatAI.style.display = 'none'; floatBox.style.width = '270px';">Back</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
